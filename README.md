@@ -83,9 +83,9 @@ The agent's behavior is controlled through the `AGENT_CONFIG` dictionary. Here a
 ### Conversation Settings
 ```python
 "QUOTE_ORIGINAL_MESSAGE": False,     # Enable/disable message quoting
-"MAX_QUOTE_LENGTH": 200,            # Maximum quote length
-"MENTION_USER": False,              # Enable/disable user mentions
-"DETECT_DIRECT_MENTIONS": True,     # Detect when agent is mentioned
+"MAX_QUOTE_LENGTH": 200,             # Maximum quote length
+"MENTION_USER": False,               # Enable/disable user mentions
+"DETECT_DIRECT_MENTIONS": True,      # Detect when agent is mentioned
 ```
 
 ### API Configuration
@@ -105,13 +105,13 @@ The agent's behavior is controlled through the `AGENT_CONFIG` dictionary. Here a
 ### Model Parameters
 ```python
 "TEMPERATURE": 0.9,         # Response randomness (0-2.0)
-"TOP_P": 1,                # Nucleus sampling (0-1.0)
+"TOP_P": 1,                 # Nucleus sampling (0-1.0)
 "FREQUENCY_PENALTY": 1.3,   # Token frequency penalty
 "PRESENCE_PENALTY": 1.2,    # Token presence penalty
 "REPETITION_PENALTY": 1.1,  # Repetition penalty
-"MIN_P": 0.0,              # Minimum token probability
-"TOP_A": 1.0,              # Dynamic nucleus sampling
-"TOP_K": 0,                # Vocabulary limitation
+"MIN_P": 0.0,               # Minimum token probability
+"TOP_A": 1.0,               # Dynamic nucleus sampling
+"TOP_K": 0,                 # Vocabulary limitation
 ```
 
 ### Rate Limiting
