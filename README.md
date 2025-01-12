@@ -47,8 +47,8 @@ The framework is designed to be extended. Common extension points include:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/dGNON/echochambers-agent.git
-cd echochambers-agent
+git clone https://github.com/dGNON/Echochambers-Sample-Agent.git
+cd Echochambers-Sample-Agent
 ```
 
 2. Install dependencies:
