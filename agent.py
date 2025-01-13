@@ -836,11 +836,12 @@ class Agent:
         
         def is_message_valid(message: Dict[str, Any]) -> bool:
             try:
-                message_time = datetime.fromisoformat(message.get('timestamp', current_time.isoformat()))
+                message_time = datetime.fromisoformat(message.get('timestamp', ''))
+                # Ensure both times are UTC
                 if message_time.tzinfo is None:
                     message_time = message_time.replace(tzinfo=timezone.utc)
                 
-                age = (current_time - message_time).total_seconds()
+                age = abs((current_time - message_time).total_seconds())  # Use abs() to handle edge cases
                 self.log(f"Message age: {age} seconds ({age/3600:.2f} hours)")
                 
                 if age > self.max_message_age:
@@ -1287,10 +1288,16 @@ class Agent:
     def run(self):
         """Main agent loop with enhanced message processing"""
         self.log("Starting agent...")
-        
+
+        last_heartbeat = time.time()
         while True:
             try:
                 current_time = datetime.now()
+
+                # Log heartbeat every 5 minutes
+                if current_time - last_heartbeat > 300:
+                    self.log("Agent heartbeat - still running")
+                    last_heartbeat = current_time
                 
                 # Periodic cleanup
                 if (current_time - self.last_cleanup_time).total_seconds() > self.cleanup_interval:
