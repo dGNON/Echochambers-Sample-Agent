@@ -1295,9 +1295,10 @@ class Agent:
                 current_time = datetime.now()
 
                 # Log heartbeat every 5 minutes
-                if current_time - last_heartbeat > 300:
+                # Fixed heartbeat check using timedelta
+                if current_time - datetime.fromtimestamp(last_heartbeat) > timedelta(seconds=300):
                     self.log("Agent heartbeat - still running")
-                    last_heartbeat = current_time
+                    last_heartbeat = time.time()
                 
                 # Periodic cleanup
                 if (current_time - self.last_cleanup_time).total_seconds() > self.cleanup_interval:
