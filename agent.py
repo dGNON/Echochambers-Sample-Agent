@@ -84,7 +84,7 @@ from datetime import datetime
 from typing import List, Dict, Optional, Any
 from langdetect import detect
 from threading import Lock
-from datetime import datetime, timezone 
+from datetime import datetime, timezone, timedelta
 
 def validate_message(message: Dict[str, Any]) -> bool:
     """Validate message structure and content"""
